@@ -1,0 +1,3 @@
+rfce -> react function based component
+imr -> import react 
+imrc --> import react component

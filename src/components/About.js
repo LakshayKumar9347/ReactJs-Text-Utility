@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 
 export default function About() {
   const  containerStyle ={
-    backgroundColor:'black',
+    backgroundColor:'rgb(24, 28, 32)',
     borderRadius:'10px'
   }
   const [btnDesc, setBtn] = useState("Enable Dark Mode")
@@ -10,11 +10,11 @@ export default function About() {
 
   const changeColor=()=>{
     if (theme.backgroundColor=='white') {
-      setTheme({color:"white",backgroundColor:"black"})
+      setTheme({color:"white",backgroundColor:"rgb(32, 38, 43)"})
       setBtn('Enable LIght Mode')
     }
-   if (theme.backgroundColor=='black') {
-    setTheme({color:"black",backgroundColor:"white"})
+   if (theme.backgroundColor=='rgb(32, 38, 43)') {
+    setTheme({color:"#343a40",backgroundColor:"white"})
       setBtn('Enable Dark Mode')
    }
   }
