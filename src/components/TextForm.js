@@ -19,32 +19,42 @@ export default function TextForm(props) {
         setText('')
         props.alert("Clear Text Successfully", "success")
     }
-    const handleCopyText=()=>{
+    const handleCopyText = () => {
         navigator.clipboard.writeText(text)
         console.log('copy to CB')
         props.alert("Copied to Clipboard!", "success")
     }
-    const handleExtraSpaces=()=>{
-        setText(text.replace(/\s+/g," "))
+    const handleExtraSpaces = () => {
+        setText(text.replace(/\s+/g, " "))
         props.alert("ExtraSpaces has been Removed", "success")
     }
-    const playAudio=()=>{
-      let audio = new Audio(`${props.audio}`)
-      audio.loop = true;
-      audio.play()
-     
+    const playAudio = () => {
+        let audio = new Audio(`${props.audio}`)
+        audio.loop = true;
+        audio.play()
+
     }
     const handleOnclick = (event) => {
         setText(event.target.value)
+    }
+    let BtsBg
+    let BtsColor
+    if (props.prop==='light') {
+        BtsBg   = ' bg-light'
+         BtsColor = 'text-dark'
+    }
+    if (props.prop==='dark') {
+      BtsBg   = ' bg-dark'
+         BtsColor = 'text-light'
     }
     return (
         <>
             <div className='container w-80'>
                 <div className="mb-3">
-                    <h1 className='text-center my-2'>Enter the Text to Analyze Below</h1>
-                    <textarea className="form-control" value={text} onChange={handleOnclick} id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <h1 className='text-center my-2'>Enter the Text Here to Analyze Below</h1>    
+                    <textarea className={`form-control${BtsBg} ${BtsColor} `} value={text} onChange={handleOnclick} id="exampleFormControlTextarea1" rows="5"></textarea>
                     <button className="btn btn-warning m-1 my-2" onClick={handleUpClick}>Convert to Uppercase</button>
-                    <button className="btn btn-warning m-1 my-2" onClick={handleLoClick}>Convert to Uppercase</button>
+                    <button className="btn btn-warning m-1 my-2" onClick={handleLoClick}>Convert to LowerCase</button>
                     {/* //todo add clear text functionality */}
                     {/* //todo add copy text functionality */}
                     {/* //todo add remove exptra space functionality */}
@@ -59,7 +69,7 @@ export default function TextForm(props) {
                     <p>{text.split(" ").length} words , {text.length} character</p>
                     <p>{0.008 * text.split(" ").length + ' Minutes Take to Read'}</p>
                     <h1 className='text-center'>Preview  </h1>
-                    <p>{text}</p>
+                    <div className={`container form-control${BtsBg} ${BtsColor} `}> <p>{text}</p></div>
                 </div>
             </div>
         </>

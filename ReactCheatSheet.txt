@@ -1,3 +1,4 @@
-rfce -> react function based component
+rfce -> react function based component 
 imr -> import react 
 imrc --> import react component
+    "start": "set BROWSER=none&& react-scripts start",

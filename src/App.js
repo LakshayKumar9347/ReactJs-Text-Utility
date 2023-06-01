@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import audioFile from  './audio.mp3'
+import audioFile from './audio.mp3'
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
@@ -12,10 +12,10 @@ function App() {
   const [prop, setProp] = useState('light'); //todo ==set color property in navbar
   const [alert, setAlert] = useState(null); //todo ==set alert property in alert
 
-  const showAlert=(message,type)=>{
+  const showAlert = (message, type) => {
     setAlert({
-      message:message,
-      type:type
+      message: message,
+      type: type
     })
   }
 
@@ -28,20 +28,21 @@ function App() {
     }
     if (prop === 'dark') {
       setProp('light')
-      document.body.style.backgroundColor = " whitesmoke"
+      
+    document.body.style.backgroundColor = " whitesmoke"
       document.body.style.color = " rgb(32, 38, 43)"
       showAlert("Light mode has enable", "success")
     }
   }
-setTimeout(() => {
-  setAlert(null)
-}, 2300);
+  setTimeout(() => {
+    setAlert(null)
+  }, 3000);
   return (
     <>
       <Navbar title='TextUtils' about='AboutUtils' mode={toggleMode} prop={prop} />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
-      <TextForm alert={showAlert} audio={audioFile}/>
+      <TextForm alert={showAlert} audio={audioFile} prop={prop} />
       {/* <About /> */}
     </>
   )
