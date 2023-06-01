@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import soundEffect from './positive.mp3'
+import errorOccur from './errorOccur.mp3'
 //todo adding sound effect when user click on button
-import soundEffect from './soundEffect.mp3'
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
@@ -10,12 +11,16 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 
 function App() {
-
-function playEffects() {
-let playSound = new Audio(`${soundEffect}`)  
-
-playSound.play()
- }
+  let playSound
+  function playEffects(success) {
+    if (success == true) {
+      playSound = new Audio(`${soundEffect}`)
+    }
+    if (success == false) {
+      playSound = new Audio(`${errorOccur}`)
+    }
+    playSound.play()
+  }
 
   const [prop, setProp] = useState('light'); //todo ==set color property in navbar
   const [alert, setAlert] = useState(null); //todo ==set alert property in alert
@@ -24,7 +29,12 @@ playSound.play()
     setAlert({
       message: message,
       type: type
-    })
+    });
+      setTimeout(() => {
+        setAlert(null)
+      }, 2300);
+    console.log(alert);
+
   }
 
   const toggleMode = () => {
@@ -33,28 +43,24 @@ playSound.play()
       document.body.style.backgroundColor = "rgb(13, 17, 20) "
       document.body.style.color = " whitesmoke"
       showAlert("Dark mode has enable", "success")
-      playEffects()
+      playEffects(true)
     }
     if (prop === 'dark') {
       setProp('light')
-      
-    document.body.style.backgroundColor = " whitesmoke"
+      document.body.style.backgroundColor = " whitesmoke"
       document.body.style.color = " rgb(32, 38, 43)"
       showAlert("Light mode has enable", "success")
-      playEffects()
-   
+      playEffects(true)
+
     }
   }
-  setTimeout(() => {
-    setAlert(null)
-  }, 3000);
-  
+
   return (
     <>
-      <Navbar title='TextUtils' about='AboutUtils' mode={toggleMode} prop={prop}  />
+      <Navbar title='TextUtils' about='AboutUtils' mode={toggleMode} prop={prop} />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
-      <TextForm alert={showAlert} prop={prop} audio={playEffects}/>
+      <TextForm alert={showAlert} prop={prop} audio={playEffects} />
       {/* <About /> */}
     </>
   )

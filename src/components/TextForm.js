@@ -8,34 +8,32 @@ export default function TextForm(props) {
         setText(newText)
         // console.log(text);
         props.alert("Text is Converted in UpperCase", "success")
-        props.audio()
+        props.audio(true)
     };
     const handleLoClick = () => {
         let newText = text.toLowerCase()
         setText(newText)
         // console.log(text);
         props.alert("Text is Converted in LowerCase", "success")
-        props.audio()
+        props.audio(true)
     };
     const handleClearText = () => {
         setText('')
         props.alert("Clear Text Successfully", "success")
-        props.audio()
+        props.audio(true)
     }
     const handleCopyText = () => {
-        navigator.clipboard.writeText(text)
-        console.log('copy to CB')
-        props.alert("Copied to Clipboard!", "success")
+     text===""?props.alert("Kindly add some text Above", "danger") || props.audio(false):  navigator.clipboard.writeText(text) &&  props.alert("Copied to Clipboard!", "success")
         props.audio()
     }
     const handleExtraSpaces = () => {
         setText(text.replace(/\s+/g, " "))
         props.alert("ExtraSpaces has been Removed", "success")
-        props.audio()
+        props.audio(true)
     }
     const handleMischiefMelody = () => {
-    props.audio()
-    props.alert(" Ahhh Fuck Me Daddy Harder", "success")
+    props.alert("MIschief audio", "success")
+    props.audio(true)
     }
     const handleOnclick = (event) => {
         setText(event.target.value)
