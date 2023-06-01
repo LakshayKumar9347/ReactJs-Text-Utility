@@ -25,7 +25,7 @@ export default function About() {
         <div className="accordion-item"  style={theme}>
           <h2 className="accordion-header " >
             <button className="accordion-button"  style={theme} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Accordion Item #1
+              Accordion Item #1 & About us
             </button>
           </h2>
           <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
