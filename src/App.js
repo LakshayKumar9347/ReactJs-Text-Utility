@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import audioFile from './audio.mp3'
+//todo adding sound effect when user click on button
+import soundEffect from './soundEffect.mp3'
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
@@ -9,6 +10,13 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 
 function App() {
+
+function playEffects() {
+let playSound = new Audio(`${soundEffect}`)  
+
+playSound.play()
+ }
+
   const [prop, setProp] = useState('light'); //todo ==set color property in navbar
   const [alert, setAlert] = useState(null); //todo ==set alert property in alert
 
@@ -25,6 +33,7 @@ function App() {
       document.body.style.backgroundColor = "rgb(13, 17, 20) "
       document.body.style.color = " whitesmoke"
       showAlert("Dark mode has enable", "success")
+      playEffects()
     }
     if (prop === 'dark') {
       setProp('light')
@@ -32,17 +41,20 @@ function App() {
     document.body.style.backgroundColor = " whitesmoke"
       document.body.style.color = " rgb(32, 38, 43)"
       showAlert("Light mode has enable", "success")
+      playEffects()
+   
     }
   }
   setTimeout(() => {
     setAlert(null)
   }, 3000);
+  
   return (
     <>
-      <Navbar title='TextUtils' about='AboutUtils' mode={toggleMode} prop={prop} />
+      <Navbar title='TextUtils' about='AboutUtils' mode={toggleMode} prop={prop}  />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
-      <TextForm alert={showAlert} audio={audioFile} prop={prop} />
+      <TextForm alert={showAlert} prop={prop} audio={playEffects}/>
       {/* <About /> */}
     </>
   )

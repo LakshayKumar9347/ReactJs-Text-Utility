@@ -8,50 +8,54 @@ export default function TextForm(props) {
         setText(newText)
         // console.log(text);
         props.alert("Text is Converted in UpperCase", "success")
+        props.audio()
     };
     const handleLoClick = () => {
         let newText = text.toLowerCase()
         setText(newText)
         // console.log(text);
         props.alert("Text is Converted in LowerCase", "success")
+        props.audio()
     };
     const handleClearText = () => {
         setText('')
         props.alert("Clear Text Successfully", "success")
+        props.audio()
     }
     const handleCopyText = () => {
         navigator.clipboard.writeText(text)
         console.log('copy to CB')
         props.alert("Copied to Clipboard!", "success")
+        props.audio()
     }
     const handleExtraSpaces = () => {
         setText(text.replace(/\s+/g, " "))
         props.alert("ExtraSpaces has been Removed", "success")
+        props.audio()
     }
-    const playAudio = () => {
-        let audio = new Audio(`${props.audio}`)
-        audio.loop = true;
-        audio.play()
-
+    const handleMischiefMelody = () => {
+    props.audio()
+    props.alert(" Ahhh Fuck Me Daddy Harder", "success")
     }
     const handleOnclick = (event) => {
         setText(event.target.value)
     }
     let BtsBg
     let BtsColor
-    if (props.prop==='light') {
-        BtsBg   = ' bg-light'
-         BtsColor = 'text-dark'
+
+    if (props.prop === 'light') {
+        BtsBg = ' bg-light'
+        BtsColor = 'text-dark'
     }
-    if (props.prop==='dark') {
-      BtsBg   = ' bg-dark'
-         BtsColor = 'text-light'
+    if (props.prop === 'dark') {
+        BtsBg = ' bg-dark'
+        BtsColor = 'text-light'
     }
     return (
         <>
             <div className='container w-80'>
                 <div className="mb-3">
-                    <h1 className='text-center my-2'>Enter the Text Here to Analyze Below</h1>    
+                    <h1 className='text-center my-2'>Enter the Text Here to Analyze Below</h1>
                     <textarea className={`form-control${BtsBg} ${BtsColor} `} value={text} onChange={handleOnclick} id="exampleFormControlTextarea1" rows="5"></textarea>
                     <button className="btn btn-warning m-1 my-2" onClick={handleUpClick}>Convert to Uppercase</button>
                     <button className="btn btn-warning m-1 my-2" onClick={handleLoClick}>Convert to LowerCase</button>
@@ -61,7 +65,7 @@ export default function TextForm(props) {
                     <button className="btn btn-warning m-1 my-2" onClick={handleClearText}>Clear Text</button>
                     <button className="btn btn-warning m-1 my-2" onClick={handleCopyText} >Copy Text</button>
                     <button className="btn btn-warning m-1 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-                    <button className="btn btn-danger m-1 my-2" onClick={playAudio}>Mischief Melodies</button>
+                    <button className="btn btn-danger m-1 my-2" onClick={handleMischiefMelody}>Mischief Melodies</button>
                 </div>
 
                 <div className="container my-2" >
