@@ -1,30 +1,30 @@
 import React, { useState } from 'react'
+//! adding sound effect when user click on button
 import soundEffect from './positive.mp3'
 import errorOccur from './errorOccur.mp3'
-//todo adding sound effect when user click on button
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
-// import ReactMain from './components/ReactMain'
 import TextForm from './components/TextForm';
-// import About from './components/About';
 import Alert from './components/Alert';
+// import ReactMain from './components/ReactMain'
+// import About from './components/About';
 
 function App() {
   let playSound
-  function playEffects(success) {
-    if (success == true) {
+  function playEffects(success) 
+  {
+    if (success === true) {
       playSound = new Audio(`${soundEffect}`)
     }
-    if (success == false) {
+    if (success === false) {
       playSound = new Audio(`${errorOccur}`)
     }
     playSound.play()
   }
 
-  const [prop, setProp] = useState('light'); //todo ==set color property in navbar
-  const [alert, setAlert] = useState(null); //todo ==set alert property in alert
-
+  const [prop, setProp] = useState('light'); //! ==set color property in navbar
+  const [alert, setAlert] = useState(null); //! ==set alert property in alert
   const showAlert = (message, type) => {
     setAlert({
       message: message,
@@ -34,7 +34,6 @@ function App() {
         setAlert(null)
       }, 2300);
     console.log(alert);
-
   }
 
   const toggleMode = () => {
@@ -51,10 +50,8 @@ function App() {
       document.body.style.color = " rgb(32, 38, 43)"
       showAlert("Light mode has enable", "success")
       playEffects(true)
-
     }
   }
-
   return (
     <>
       <Navbar title='TextUtils' about='AboutUtils' mode={toggleMode} prop={prop} />
