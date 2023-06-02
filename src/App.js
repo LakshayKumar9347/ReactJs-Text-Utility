@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 //! adding sound effect when user click on button
-import soundEffect from './positive.mp3'
-import errorOccur from './errorOccur.mp3'
+import soundEffect from './success.mp3'
+import errorOccur from './error.mp3'
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
@@ -20,6 +20,8 @@ function App() {
     if (success === false) {
       playSound = new Audio(`${errorOccur}`)
     }
+    playSound.pause();
+    playSound.currentTime = 0;
     playSound.play()
   }
 
@@ -54,7 +56,7 @@ function App() {
   }
   return (
     <>
-      <Navbar title='TextUtils' about='AboutUtils' mode={toggleMode} prop={prop} />
+      <Navbar about='About' mode={toggleMode} prop={prop} />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
       <TextForm alert={showAlert} prop={prop} audio={playEffects} />
