@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 //todo react router dom 
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //! adding sound effect when user click on button
 import soundEffect from './success.mp3'
 import errorOccur from './error.mp3'
@@ -11,7 +11,6 @@ import Alert from './components/Alert';
 // import ReactMain from './components/ReactMain'
 
 function App() {
-  //!PlayEffects
   let playSound
   function playEffects(success) {
     if (success === true) {
@@ -54,25 +53,19 @@ function App() {
       playEffects(true)
     }
   }
-  //!return render
+  // !return render
   return (
     <>
       <Navbar about='AboutUtils' mode={toggleMode} prop={prop} />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
       <Router>
-        <Switch>
-            <Route exact path='/'>
-              <TextForm alert={showAlert} prop={prop} audio={playEffects} />
-            </Route>
+        <Routes>
+          <Route exact path='/' element={<TextForm alert={showAlert} prop={prop} audio={playEffects} />}></Route>
+          <Route exact path='/about' element={<About />}></Route>
 
-            <Route exact path='/about'>
-              <About />
-            </Route>
-        </Switch>
+        </Routes>
       </Router>
-
-
     </>
   )
 }
