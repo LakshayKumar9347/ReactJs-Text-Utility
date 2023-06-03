@@ -1,11 +1,8 @@
 
 # ReactJs Text Utility
  This is a React Text Utility I have Created For Text Editing Purpose,  In this Repo you will Find  Working of React Router ,React Hooks etc
-#
-## Project
-This React Text Utility I have Create for Providing Text Editing Functionality
-## About The Project
-###
+
+# About The Project
 ## Ligt Mode Enabled
 <img src="https://github.com/LakshayKumar9347/FilesServing/blob/8e5c422359fa0c1792b4f98bf3a791fc7e7cbf88/websiteLight.png">
 
@@ -62,9 +59,9 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Your Name - Lakshay Kumar Kashyap
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: https://cuddletext.netlify.app/
 
 ## About Author
 Hi there! My name is Lakshay Kumar Kashyap and I'm a Software Developer with a focus on MERN stack development. I Love building web applications and finding elegant solutions to complex problems.
