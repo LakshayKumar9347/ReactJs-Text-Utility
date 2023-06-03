@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
+//todo react router dom 
+
 //! adding sound effect when user click on button
 import soundEffect from './success.mp3'
 import errorOccur from './error.mp3'
-// import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar'
-import TextForm from './components/TextForm';
+import TextForm from './components/TextForm'; import About from './components/About';
 import Alert from './components/Alert';
 // import ReactMain from './components/ReactMain'
-// import About from './components/About';
 
 function App() {
+  //!PlayEffects
   let playSound
-  function playEffects(success) 
-  {
+  function playEffects(success) {
     if (success === true) {
       playSound = new Audio(`${soundEffect}`)
     }
@@ -24,20 +24,20 @@ function App() {
     playSound.currentTime = 0;
     playSound.play()
   }
-
   const [prop, setProp] = useState('light'); //! ==set color property in navbar
   const [alert, setAlert] = useState(null); //! ==set alert property in alert
+  //!showAlert
   const showAlert = (message, type) => {
     setAlert({
       message: message,
       type: type
     });
-      setTimeout(() => {
-        setAlert(null)
-      }, 2300);
+    setTimeout(() => {
+      setAlert(null)
+    }, 2300);
     console.log(alert);
   }
-
+  //!toggleMOde
   const toggleMode = () => {
     if (prop === 'light') {
       setProp('dark')
@@ -54,13 +54,25 @@ function App() {
       playEffects(true)
     }
   }
+  //!return render
   return (
     <>
-      <Navbar about='About' mode={toggleMode} prop={prop} />
+      <Navbar about='AboutUtils' mode={toggleMode} prop={prop} />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
-      <TextForm alert={showAlert} prop={prop} audio={playEffects} />
-      {/* <About /> */}
+      <Router>
+        <Switch>
+            <Route exact path='/'>
+              <TextForm alert={showAlert} prop={prop} audio={playEffects} />
+            </Route>
+
+            <Route exact path='/about'>
+              <About />
+            </Route>
+        </Switch>
+      </Router>
+
+
     </>
   )
 }
