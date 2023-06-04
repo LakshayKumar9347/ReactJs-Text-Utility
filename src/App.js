@@ -58,7 +58,7 @@ function App() {
   // !return render
   return (
     <>
-      <Navbar about='AboutUtils' mode={toggleMode} prop={prop} />
+      <Navbar about='About' mode={toggleMode} prop={prop} />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
       <Routes>
