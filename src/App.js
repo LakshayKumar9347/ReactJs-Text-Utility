@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 //todo react router dom 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //! adding sound effect when user click on button
 import soundEffect from './success.mp3'
 import errorOccur from './error.mp3'
-import './App.css';
+// import './App.css';
 import Navbar from './components/Navbar'
-import TextForm from './components/TextForm'; import About from './components/About';
+import TextForm from './components/TextForm';
+import About from './components/About';
 import Alert from './components/Alert';
+// import logo from './logo.svg'
 // import ReactMain from './components/ReactMain'
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   let playSound
@@ -59,14 +61,12 @@ function App() {
       <Navbar about='AboutUtils' mode={toggleMode} prop={prop} />
       <Alert alert={alert} />
       {/* <ReactMain logo={logo} /> */}
-      <Router>
-        <Routes>
-          <Route exact path='/' element={<TextForm alert={showAlert} prop={prop} audio={playEffects} />}></Route>
-          <Route exact path='/about' element={<About />}></Route>
-
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path='/' element={<TextForm alert={showAlert} prop={prop} audio={playEffects} />} />
+        <Route path='/about' element={<About />} />
+      </Routes>
     </>
   )
 }
 export default App;
+
