@@ -73,8 +73,6 @@
 
 //! ==set color property in navbar
 
-//! adding sound effect when user click on button
-
 //! word count logic
 
 //!writing all the functions

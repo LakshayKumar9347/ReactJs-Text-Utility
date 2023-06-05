@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-//todo react router dom 
-//! adding sound effect when user click on button
 import soundEffect from './success.mp3'
 import errorOccur from './error.mp3'
 // import './App.css';
@@ -36,7 +34,7 @@ function App() {
     setTimeout(() => {
       setAlert(null)
     }, 2300);
-    console.log(alert);
+
   }
   //!toggleMOde
   const toggleMode = () => {

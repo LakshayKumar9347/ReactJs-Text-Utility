@@ -3,7 +3,7 @@ imr -> import react
 imrc --> import react component
     "start": "set BROWSER=none&& react-scripts start",
 
-
+    
    {/* <ReactMain logo={logo} /> */}
       {/* <TextForm alert={showAlert} prop={prop} audio={playEffects} /> */}
       {/* <About /> */}
