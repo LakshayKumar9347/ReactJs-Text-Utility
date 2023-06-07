@@ -1,3 +1,6 @@
+//todo ==> Beautify About Section oF Website About Section
+//todo ==> Link The Theme with Dark mode button Switch 
+
 import React, { useState } from 'react'
 // !  RFCE rect functin baseed componenet
 export default function About() {
